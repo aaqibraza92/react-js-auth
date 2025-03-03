@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+
 import './App.css';
 import SearchDebounce from './pages/SearchDebounce';
 import RangeSlider from './pages/RangeSlider';
 import Home from './pages/Home';
-import { ThemeProvider } from './auth/ThemeContext';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { AuthProvider } from './auth/AuthContext';
+import Login from './pages/private/Login';
+import MyAccount from './pages/private/MyAccount';
+import NotFound from './pages/NotFound';
+import PrivateRoute from './auth/PrivateRoute';
 
 function App() {
   return (
-    <div className="App">
-       <ThemeProvider>
-       <Home/>
-      <RangeSlider/>
+    <BrowserRouter>
+       <AuthProvider>
+      {/* <Router> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
 
-      <SearchDebounce/>
+          <Route element={<PrivateRoute />}>
+            <Route path="/my-account" element={<MyAccount />} />
+          </Route>
 
-       </ThemeProvider>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      {/* </Router> */}
+    </AuthProvider>
+      {/* <AuthProvider>
+   
+        
+       
+
+        
+
+      </AuthProvider> */}
       {/* example with rabne slider */}
 
-     
-    </div>
+
+    </BrowserRouter>
   );
 }
 
