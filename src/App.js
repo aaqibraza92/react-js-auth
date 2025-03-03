@@ -9,12 +9,14 @@ import Login from './pages/private/Login';
 import MyAccount from './pages/private/MyAccount';
 import NotFound from './pages/NotFound';
 import PrivateRoute from './auth/PrivateRoute';
+import Header from './component/Header';
 
 function App() {
   return (
     <BrowserRouter>
+  
        <AuthProvider>
-      {/* <Router> */}
+       <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -25,19 +27,7 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-      {/* </Router> */}
     </AuthProvider>
-      {/* <AuthProvider>
-   
-        
-       
-
-        
-
-      </AuthProvider> */}
-      {/* example with rabne slider */}
-
-
     </BrowserRouter>
   );
 }
