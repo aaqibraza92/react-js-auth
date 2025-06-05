@@ -10,6 +10,7 @@ import MyAccount from './pages/private/MyAccount';
 import NotFound from './pages/NotFound';
 import PrivateRoute from './auth/PrivateRoute';
 import Header from './component/Header';
+import Listing from './pages/Listing';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+             <Route path="/list" element={<Listing />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="/my-account" element={<MyAccount />} />
